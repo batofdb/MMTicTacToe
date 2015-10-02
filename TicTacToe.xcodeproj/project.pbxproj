@@ -15,6 +15,7 @@
 		471363FC1BBDCBB500BC61C4 /* TicTacToeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 471363FB1BBDCBB500BC61C4 /* TicTacToeTests.m */; };
 		471364071BBDCBB500BC61C4 /* TicTacToeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 471364061BBDCBB500BC61C4 /* TicTacToeUITests.m */; };
 		471364161BBDCC4100BC61C4 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471364151BBDCC4100BC61C4 /* GameViewController.m */; settings = {ASSET_TAGS = (); }; };
+		4713645E1BBF282200BC61C4 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4713645D1BBF282200BC61C4 /* WebViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		471364081BBDCBB500BC61C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		471364141BBDCC4100BC61C4 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		471364151BBDCC4100BC61C4 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		4713645C1BBF282200BC61C4 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		4713645D1BBF282200BC61C4 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 		471363E01BBDCBB500BC61C4 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				4713645C1BBF282200BC61C4 /* WebViewController.h */,
+				4713645D1BBF282200BC61C4 /* WebViewController.m */,
 				471364141BBDCC4100BC61C4 /* GameViewController.h */,
 				471364151BBDCC4100BC61C4 /* GameViewController.m */,
 				471363E41BBDCBB500BC61C4 /* AppDelegate.h */,
@@ -273,6 +278,7 @@
 				471363E61BBDCBB500BC61C4 /* AppDelegate.m in Sources */,
 				471364161BBDCC4100BC61C4 /* GameViewController.m in Sources */,
 				471363E31BBDCBB500BC61C4 /* main.m in Sources */,
+				4713645E1BBF282200BC61C4 /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
