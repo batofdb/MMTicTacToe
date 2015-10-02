@@ -20,14 +20,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *bottomRight;
 @property (weak, nonatomic) IBOutlet UILabel *gameIndicator;
 @property int currentLocation;
-@property BOOL isValidMark;
-@property BOOL isPlayerOne;
-@property NSString *mark;
+@property NSMutableAttributedString *mark;
 @property NSArray *gridLayout;
 @property NSSet *answerKey;
 @property NSMutableSet *playerOneMoves;
 @property NSMutableSet *playerTwoMoves;
 @property BOOL isWinner;
+@property BOOL isValidMark;
+@property BOOL isPlayerOne;
 
 @end
 
@@ -36,9 +36,11 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+
+    self.mark = [[NSMutableAttributedString alloc]init];
     self.gridLayout = [NSArray arrayWithObjects:self.topLeft,self.topMiddle,self.topRight,self.middleLeft,self.middleMiddle,self.middleRight,self.bottomLeft,self.bottomMiddle,self.bottomRight,nil];
 
-    self.answerKey = [NSSet setWithObjects:[NSSet setWithObjects:@0,@1,@2,nil],[NSSet setWithObjects:@3,@4,@5,nil],[NSSet setWithObjects:@6,@7,@8,nil],[NSSet setWithObjects:@0,@3,@6,nil],[NSSet setWithObjects:@1,@4,@7,nil],[NSSet setWithObjects:@2,@5,@8,nil],[NSSet setWithObjects:@0,@4,@8,nil],[NSSet setWithObjects:@2,@5,@6,nil],nil];
+    self.answerKey = [NSSet setWithObjects:[NSSet setWithObjects:@0,@1,@2,nil],[NSSet setWithObjects:@3,@4,@5,nil],[NSSet setWithObjects:@6,@7,@8,nil],[NSSet setWithObjects:@0,@3,@6,nil],[NSSet setWithObjects:@1,@4,@7, nil],[NSSet setWithObjects:@2,@5,@8,nil],[NSSet setWithObjects:@0,@4,@8,nil],[NSSet setWithObjects:@2,@4,@6, nil],nil];
 
     self.playerOneMoves = [[NSMutableSet alloc] init];
     self.playerTwoMoves = [[NSMutableSet alloc] init];
@@ -69,10 +71,15 @@
 
 - (void) markPlayerTap {
 
+    UIFont *fontBold = [UIFont fontWithName:@"HelveticaNeue-Bold" size:20.0f];
+    UIFont *fontLight = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
+
     if (self.isPlayerOne == YES){
-        self.mark = @"x";
+        self.mark = [self.mark initWithString:@"x"];
+        [self.mark addAttribute:NSFontAttributeName value:fontBold range:NSMakeRange(0, [self.mark length])];
     } else {
-        self.mark = @"o";
+        self.mark = [self.mark initWithString:@"o"];
+        [self.mark addAttribute:NSFontAttributeName value:fontLight range:NSMakeRange(0, [self.mark length])];
     }
 
     [self makeMagicHappen:[self.gridLayout objectAtIndex:self.currentLocation]];
@@ -90,8 +97,8 @@
 
 -(void) makeMagicHappen : (UILabel *) label{
 
-    if (!([label.text containsString:@"x"] || [label.text containsString:@"o"])){
-        label.text = self.mark;
+    if (!([[label.attributedText string] containsString:@"x"] || [[label.attributedText string]containsString:@"o"])){
+        label.attributedText = self.mark;
         self.isValidMark = NO;
     }
 }
@@ -115,13 +122,14 @@
 
 //Brute Force method
 - (void) checkForWinner{
-    
-    if(self.isPlayerOne == YES) {
-        if([self.answerKey containsObject:self.playerOneMoves])
+    for (NSSet *set in self.answerKey){
+        if(self.isPlayerOne == YES) {
+        if([set isSubsetOfSet:self.playerOneMoves])
             self.isWinner = YES;
-    } else {
-        if([self.answerKey containsObject:self.playerTwoMoves])
+        } else {
+        if([set isSubsetOfSet:self.playerTwoMoves])
             self.isWinner = YES;
+        }
     }
 }
 
@@ -130,10 +138,10 @@
         [self.playerOneMoves addObject:[NSNumber numberWithInt:self.currentLocation]];
     else
         [self.playerTwoMoves addObject:[NSNumber numberWithInt:self.currentLocation]];
-
 }
 
 -(void) alertWinner{
+
     NSString *playerString = @"Player 1";
     if (!self.isPlayerOne)
         playerString = @"Player 2";
@@ -148,4 +156,13 @@
     [self presentViewController:alert animated:YES completion:nil];
 
 }
+
+
+////////////////////
+// Stretch Goals
+////////////////////
+
+
+
+
 @end
