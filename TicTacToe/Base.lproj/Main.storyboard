@@ -16,9 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vip-pO-h6B">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vip-pO-h6B">
                                 <rect key="frame" x="162" y="147" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.92981065374736682" green="0.941986039918421" blue="0.93065227117631577" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="0K5-Uz-iZe"/>
                                     <constraint firstAttribute="width" constant="75" id="ayP-E0-1Xl"/>
@@ -26,10 +27,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="8k7-Kv-VDI" appends="YES" id="Wbf-dj-XLZ"/>
+                                </connections>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXa-Gg-HIh">
+                            <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXa-Gg-HIh">
                                 <rect key="frame" x="266" y="147" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.92981065374736682" green="0.941986039918421" blue="0.93065227117631577" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="f8m-Xc-1hA"/>
                                     <constraint firstAttribute="height" constant="75" id="whL-sL-96n"/>
@@ -37,10 +42,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="qCt-OS-O55" appends="YES" id="gjc-o9-GN9"/>
+                                </connections>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRO-Vt-h3Q">
+                            <label opaque="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRO-Vt-h3Q">
                                 <rect key="frame" x="364" y="147" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.92981065374736682" green="0.941986039918421" blue="0.93065227117631577" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="5XY-mQ-Idr"/>
                                     <constraint firstAttribute="height" constant="75" id="fEM-EL-kB2"/>
@@ -48,10 +57,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="y42-0Y-ikP" appends="YES" id="acK-I2-pXL"/>
+                                </connections>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYC-xn-X9k">
+                            <label opaque="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYC-xn-X9k">
                                 <rect key="frame" x="162" y="244" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.92981065374736682" green="0.941986039918421" blue="0.93065227117631577" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="ceP-Ot-Fet"/>
                                     <constraint firstAttribute="height" constant="75" id="oIj-iY-Jxt"/>
@@ -59,10 +72,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="I9J-BB-VAX" appends="YES" id="bCx-qG-RXp"/>
+                                </connections>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VsP-tI-gUu">
+                            <label opaque="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VsP-tI-gUu">
                                 <rect key="frame" x="266" y="244" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.92981065374736682" green="0.941986039918421" blue="0.93065227117631577" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="OsR-k8-1qt"/>
                                     <constraint firstAttribute="width" constant="75" id="T1q-mt-JHl"/>
@@ -72,10 +89,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="UjK-B8-Cul" appends="YES" id="uNi-UD-0hP"/>
+                                </connections>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzS-8l-wtd">
+                            <label opaque="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzS-8l-wtd">
                                 <rect key="frame" x="364" y="248" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.92981065374736682" green="0.941986039918421" blue="0.93065227117631577" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="JeZ-E9-80c"/>
                                     <constraint firstAttribute="width" constant="75" id="rAp-5q-4Ub"/>
@@ -83,10 +104,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="gCW-SF-vqz" appends="YES" id="mSp-2O-PEn"/>
+                                </connections>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hG-in-Oi6">
+                            <label opaque="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hG-in-Oi6">
                                 <rect key="frame" x="162" y="356" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.92981065374736682" green="0.941986039918421" blue="0.93065227117631577" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="JGD-9V-jb4"/>
                                     <constraint firstAttribute="height" constant="75" id="yyJ-34-FGs"/>
@@ -94,10 +119,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="TJ9-67-O66" appends="YES" id="AS5-mt-90w"/>
+                                </connections>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9P-1d-s13">
+                            <label opaque="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9P-1d-s13">
                                 <rect key="frame" x="266" y="356" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.92981065374736682" green="0.941986039918421" blue="0.93065227117631577" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="7Wg-op-kph"/>
                                     <constraint firstAttribute="height" constant="75" id="Em5-lS-JTw"/>
@@ -105,10 +134,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="eMt-1D-1TT" appends="YES" id="ztf-3H-2xB"/>
+                                </connections>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H38-6w-iDX">
+                            <label opaque="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H38-6w-iDX">
                                 <rect key="frame" x="364" y="356" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.92981065374736682" green="0.941986039918421" blue="0.93065227117631577" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="bTX-6d-0hI"/>
                                     <constraint firstAttribute="height" constant="75" id="eqQ-rL-I2t"/>
@@ -118,6 +151,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="diT-8s-lhI" appends="YES" id="qlJ-Px-Vin"/>
+                                </connections>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRC-3P-ZPP">
                                 <rect key="frame" x="267" y="46" width="67" height="43"/>
@@ -168,7 +204,7 @@
                             <constraint firstItem="VsP-tI-gUu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zTe-I5-75R"/>
                         </constraints>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="QOx-cR-rDs" appends="YES" id="23U-7f-01k"/>
+                            <outletCollection property="gestureRecognizers" destination="tVu-xm-yAU" appends="YES" id="WJE-Ps-DhN"/>
                         </connections>
                     </view>
                     <connections>
@@ -185,9 +221,54 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="QOx-cR-rDs">
+                <tapGestureRecognizer id="8k7-Kv-VDI">
                     <connections>
-                        <action selector="tapHandler:" destination="BYZ-38-t0r" id="WYd-3R-R2V"/>
+                        <action selector="tapHandler:" destination="BYZ-38-t0r" id="K70-yu-aQt"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="qCt-OS-O55">
+                    <connections>
+                        <action selector="tapHandler:" destination="BYZ-38-t0r" id="yp6-mw-rNn"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="y42-0Y-ikP">
+                    <connections>
+                        <action selector="tapHandler:" destination="BYZ-38-t0r" id="NcH-dQ-NRZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="I9J-BB-VAX">
+                    <connections>
+                        <action selector="tapHandler:" destination="BYZ-38-t0r" id="aWK-h7-hNy"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="tVu-xm-yAU">
+                    <connections>
+                        <action selector="tapHandler:" destination="BYZ-38-t0r" id="S7h-5I-gfQ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="gCW-SF-vqz">
+                    <connections>
+                        <action selector="tapHandler:" destination="BYZ-38-t0r" id="svC-2A-W7T"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="TJ9-67-O66">
+                    <connections>
+                        <action selector="tapHandler:" destination="BYZ-38-t0r" id="1Xg-AY-2nY"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="eMt-1D-1TT">
+                    <connections>
+                        <action selector="tapHandler:" destination="BYZ-38-t0r" id="s4E-UV-chZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="diT-8s-lhI">
+                    <connections>
+                        <action selector="tapHandler:" destination="BYZ-38-t0r" id="HU5-OO-H89"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="UjK-B8-Cul">
+                    <connections>
+                        <action selector="tapHandler:" destination="BYZ-38-t0r" id="5cg-HS-klm"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
