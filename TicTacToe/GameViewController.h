@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GameViewController : UIViewController
-
+@property BOOL isComputerEnabled;
 @end

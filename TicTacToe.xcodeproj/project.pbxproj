@@ -16,6 +16,7 @@
 		471364071BBDCBB500BC61C4 /* TicTacToeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 471364061BBDCBB500BC61C4 /* TicTacToeUITests.m */; };
 		471364161BBDCC4100BC61C4 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471364151BBDCC4100BC61C4 /* GameViewController.m */; settings = {ASSET_TAGS = (); }; };
 		4713645E1BBF282200BC61C4 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4713645D1BBF282200BC61C4 /* WebViewController.m */; settings = {ASSET_TAGS = (); }; };
+		471364671BC03D5700BC61C4 /* TItleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471364661BC03D5700BC61C4 /* TItleViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		471364151BBDCC4100BC61C4 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		4713645C1BBF282200BC61C4 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		4713645D1BBF282200BC61C4 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		471364651BC03D5600BC61C4 /* TItleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TItleViewController.h; sourceTree = "<group>"; };
+		471364661BC03D5700BC61C4 /* TItleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TItleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				471363EF1BBDCBB500BC61C4 /* LaunchScreen.storyboard */,
 				471363F21BBDCBB500BC61C4 /* Info.plist */,
 				471363E11BBDCBB500BC61C4 /* Supporting Files */,
+				471364651BC03D5600BC61C4 /* TItleViewController.h */,
+				471364661BC03D5700BC61C4 /* TItleViewController.m */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 				471364161BBDCC4100BC61C4 /* GameViewController.m in Sources */,
 				471363E31BBDCBB500BC61C4 /* main.m in Sources */,
 				4713645E1BBF282200BC61C4 /* WebViewController.m in Sources */,
+				471364671BC03D5700BC61C4 /* TItleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

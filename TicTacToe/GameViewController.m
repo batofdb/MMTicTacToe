@@ -20,7 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *bottomRight;
 @property (weak, nonatomic) IBOutlet UILabel *gameIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
-@property (weak, nonatomic) IBOutlet UIButton *startButtonLabel;
+@property (weak, nonatomic) IBOutlet UIButton *quitButtonLabel;
+@property (weak, nonatomic) IBOutlet UIButton *computerEnabledButton;
 @property int currentLocation;
 @property NSMutableAttributedString *mark;
 @property NSArray *gridLayout;
@@ -34,6 +35,8 @@
 @property NSTimer *timer;
 @property BOOL isPlaying;
 @property CGPoint defaultGameIndicatorCenter;
+@property NSMutableSet *availableMoves;
+
 
 @end
 
@@ -42,13 +45,18 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+}
 
+- (void)viewDidAppear:(BOOL)animated{
+
+    [super viewDidAppear:YES];
+    
     self.mark = [[NSMutableAttributedString alloc]init];
     self.gridLayout = [NSArray arrayWithObjects:self.topLeft,self.topMiddle,self.topRight,self.middleLeft,self.middleMiddle,self.middleRight,self.bottomLeft,self.bottomMiddle,self.bottomRight,nil];
 
-
-
     self.answerKey = [NSSet setWithObjects:[NSSet setWithObjects:@0,@1,@2,nil],[NSSet setWithObjects:@3,@4,@5,nil],[NSSet setWithObjects:@6,@7,@8,nil],[NSSet setWithObjects:@0,@3,@6,nil],[NSSet setWithObjects:@1,@4,@7, nil],[NSSet setWithObjects:@2,@5,@8,nil],[NSSet setWithObjects:@0,@4,@8,nil],[NSSet setWithObjects:@2,@4,@6, nil],nil];
+
+    self.availableMoves = [NSMutableSet setWithObjects:@0,@1,@2,@3,@4,@5,@6,@7,@8, nil];
 
     self.playerOneMoves = [[NSMutableSet alloc] init];
     self.playerTwoMoves = [[NSMutableSet alloc] init];
@@ -57,7 +65,11 @@
     self.isPlayerOne = YES;
     self.isValidMark = NO;
     self.defaultGameIndicatorCenter = self.gameIndicator.center;
+
+    [self startGame];
 }
+
+
 
 - (void) updateGameBoard {
     if (self.isPlaying){
@@ -66,10 +78,10 @@
         else
             self.gameIndicator.text = @"O";
     }
-
+/*
     if(self.isPlaying)
-        [self.startButtonLabel setTitle:@"Quit" forState:UIControlStateNormal];
-
+        [self.quitButtonLabel setTitle:@"Quit" forState:UIControlStateNormal];
+*/
 }
 
 - (IBAction)tapHandler:(UITapGestureRecognizer *)sender {
@@ -100,12 +112,24 @@
 
     if (!self.isValidMark){
         [self addPlayerMove];
+        if(self.isPlayerOne)
+            [self.availableMoves minusSet:self.playerOneMoves];
+        else
+            [self.availableMoves minusSet:self.playerTwoMoves];
+
         [self checkForWinner];
         if (self.isWinner)
             [self alertWinner];
-        self.isPlayerOne ^= YES;
+
         self.isValidMark = YES;
         [self resetTimer];
+        self.isPlayerOne ^= YES;
+        //Issue with AI belowvvvvvvvvv
+        if(self.isComputerEnabled && (self.isPlayerOne == NO))
+            [self makeComputerMove];
+
+
+
     }
 }
 
@@ -126,7 +150,9 @@
     for (UILabel *label in self.gridLayout){
         label.text = @"";
     }
-    [self.startButtonLabel setTitle:@"Start" forState:UIControlStateNormal];
+    self.availableMoves = [NSMutableSet setWithObjects:@0,@1,@2,@3,@4,@5,@6,@7,@8, nil];
+    //[self.quitButtonLabel setTitle:@"Start" forState:UIControlStateNormal];
+    self.gameIndicator.text = @"Ready";
     [self resetTimer];
     self.isPlaying = NO;
     [self.playerOneMoves removeAllObjects];
@@ -134,6 +160,7 @@
     self.isPlayerOne = YES;
     self.isValidMark = YES;
     self.isWinner = NO;
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 //Brute Force method
@@ -146,6 +173,9 @@
         if([set isSubsetOfSet:self.playerTwoMoves])
             self.isWinner = YES;
         }
+    }
+    if((self.isWinner == NO) &&([self.availableMoves count]==0)){
+        [self tieGameAlert];
     }
 }
 
@@ -174,6 +204,19 @@
 
 }
 
+-(void) tieGameAlert{
+
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cat's Game" message:[NSString stringWithFormat:@"It's a tie..=("] preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"Aw man!" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self stopTimer];
+        [self resetAction];
+    }];
+
+    [alert addAction:okButton];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
 
 ////////////////////
 // Stretch Goals
@@ -233,7 +276,13 @@
 // Interface
 //////////////
 
-- (IBAction)startButton:(UIButton *)sender {
+- (IBAction)quitButton:(UIButton *)sender {
+    [self stopTimer];
+    [self resetAction];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void) startGame{
     self.isPlaying ^= YES;
 
     if(self.isPlaying){
@@ -252,7 +301,6 @@
 - (IBAction)panHandler:(UIPanGestureRecognizer *)sender {
     if (self.isPlaying){
         CGPoint point = [sender locationInView:self.view];
-
         self.gameIndicator.center = point;
 
         if (sender.state == UIGestureRecognizerStateEnded){
@@ -274,6 +322,27 @@
     }
 }
 
+////////////////
+// AI
+////////////////
 
+-(void) makeComputerMove{
+    self.currentLocation = [[self randomAvailableMove:self.availableMoves] intValue];
+    [self markPlayerTap];
+}
 
+-(NSNumber *) randomAvailableMove:(NSSet *)set{
+
+    NSArray *array = [set allObjects];
+
+    if ([array count] == 0) {
+        return nil;
+    }
+    return [array objectAtIndex: arc4random() % [array count]];
+}
 @end
+
+
+
+
+//Click and drag game fails after 4 moves
