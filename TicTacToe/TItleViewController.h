@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "GameViewController.h"
 
-@interface TItleViewController : GameViewController
+@interface TItleViewController : UIViewController
 
 @end

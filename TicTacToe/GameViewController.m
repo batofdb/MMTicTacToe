@@ -50,7 +50,7 @@
 - (void)viewDidAppear:(BOOL)animated{
 
     [super viewDidAppear:YES];
-    
+
     self.mark = [[NSMutableAttributedString alloc]init];
     self.gridLayout = [NSArray arrayWithObjects:self.topLeft,self.topMiddle,self.topRight,self.middleLeft,self.middleMiddle,self.middleRight,self.bottomLeft,self.bottomMiddle,self.bottomRight,nil];
 
@@ -343,6 +343,3 @@
 @end
 
 
-
-
-//Click and drag game fails after 4 moves
