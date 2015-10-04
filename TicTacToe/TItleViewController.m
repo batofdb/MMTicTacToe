@@ -22,14 +22,22 @@
 @property (weak, nonatomic) IBOutlet UILabel *movingX5;
 @property (weak, nonatomic) IBOutlet UILabel *movingO5;
 @property BOOL isTitleAnimationEnabled;
+@property BOOL onFirstLoad;
 @end
 
 @implementation TItleViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
     self.isTitleAnimationEnabled = YES;
     [self startTitleAnimation];
+}
+
+
+- (void) viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:YES];
+    [self.view.layer removeAllAnimations];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,14 +51,13 @@
 }
 
 -(void) moveObject:(UILabel *)obj{
-    BOOL animationOn = YES;
     [UIView animateWithDuration: 2+arc4random_uniform(12)
                           delay: arc4random_uniform(5)
                         options: UIViewAnimationOptionRepeat
                      animations: ^{
                          obj.frame = CGRectOffset(obj.frame, -([UIScreen mainScreen].bounds.size.width+obj.bounds.size.width), 0);
                      } completion: ^(BOOL finished){
-                         if (!animationOn) {
+                         if (!self.isTitleAnimationEnabled) {
                              [UIView setAnimationRepeatCount: 0];
                          }
                      }];
