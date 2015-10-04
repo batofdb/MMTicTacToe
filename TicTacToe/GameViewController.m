@@ -149,18 +149,24 @@
     [self resetAction];
 }
 
--(void) resetAction{
-
+-(void)clearBoard{
     for (UILabel *label in self.gridLayout){
         label.text = @"";
     }
+    [self.playerOneMoves removeAllObjects];
+    [self.playerTwoMoves removeAllObjects];
+    [self updateGameBoard];
+}
+
+-(void) resetAction{
+
+
     self.availableMoves = [NSMutableSet setWithObjects:@0,@1,@2,@3,@4,@5,@6,@7,@8, nil];
     //[self.quitButtonLabel setTitle:@"Start" forState:UIControlStateNormal];
     self.gameIndicator.text = @"Ready";
     [self resetTimer];
     self.isPlaying = NO;
-    [self.playerOneMoves removeAllObjects];
-    [self.playerTwoMoves removeAllObjects];
+    [self clearBoard];
     self.isPlayerOne = YES;
     self.isValidMark = YES;
     self.isWinner = NO;
@@ -346,6 +352,8 @@
 }
 - (IBAction)onHelpButtonPressed:(UIButton *)sender {
     [self stopTimer];
+    [self clearBoard];
+
 }
 @end
 
