@@ -274,6 +274,7 @@
                                             <color key="titleColor" red="1" green="0.75686274509999996" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
+                                            <action selector="onHelpButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4YB-RR-kdZ"/>
                                             <segue destination="Qfh-pe-tdf" kind="showDetail" id="t1u-Xg-GGd"/>
                                         </connections>
                                     </button>
@@ -568,30 +569,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Axe-QY-lwd">
-                                <rect key="frame" x="-6" y="0.0" width="606" height="76"/>
+                                <rect key="frame" x="-6" y="0.0" width="606" height="82"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PmS-zo-dTX">
-                                        <rect key="frame" x="284" y="23" width="39" height="30"/>
+                                        <rect key="frame" x="262" y="17" width="82" height="48"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="RC8-RI-rHp"/>
-                                            <constraint firstAttribute="width" constant="39" id="gio-WW-grb"/>
+                                            <constraint firstAttribute="height" constant="48" id="JZN-9e-Jh2"/>
+                                            <constraint firstAttribute="width" constant="82" id="tX1-vS-r23"/>
                                         </constraints>
-                                        <state key="normal" title="Close"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                        <state key="normal" title="Close">
+                                            <color key="titleColor" red="1" green="0.75686274509999996" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="onCloseButtonPressed:" destination="Qfh-pe-tdf" eventType="touchUpInside" id="KFE-3D-C96"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.80784313730000001" green="0.83921568629999999" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.27058823529999998" green="0.35294117650000001" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="Pyw-j2-PpX"/>
-                                    <constraint firstItem="PmS-zo-dTX" firstAttribute="top" secondItem="Axe-QY-lwd" secondAttribute="top" constant="23" id="S13-Sf-MAG"/>
-                                    <constraint firstItem="PmS-zo-dTX" firstAttribute="centerX" secondItem="Axe-QY-lwd" secondAttribute="centerX" id="Y6q-Vo-79Q"/>
+                                    <constraint firstItem="PmS-zo-dTX" firstAttribute="centerX" secondItem="Axe-QY-lwd" secondAttribute="centerX" id="3DI-SV-MhL"/>
+                                    <constraint firstAttribute="bottom" secondItem="PmS-zo-dTX" secondAttribute="bottom" constant="14" id="MwH-lH-9e5"/>
+                                    <constraint firstItem="PmS-zo-dTX" firstAttribute="centerY" secondItem="Axe-QY-lwd" secondAttribute="centerY" id="Ooa-pH-dJ6"/>
+                                    <constraint firstAttribute="height" constant="82" id="Pyw-j2-PpX"/>
+                                    <constraint firstItem="PmS-zo-dTX" firstAttribute="top" secondItem="Axe-QY-lwd" secondAttribute="top" constant="14" id="SPp-tq-cbn"/>
                                     <constraint firstAttribute="width" constant="606" id="ydA-6l-eUZ"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="MwH-lH-9e5"/>
+                                        <exclude reference="SPp-tq-cbn"/>
+                                    </mask>
+                                </variation>
                             </view>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8lm-P4-YHG">
-                                <rect key="frame" x="0.0" y="73" width="600" height="527"/>
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8lm-P4-YHG">
+                                <rect key="frame" x="0.0" y="82" width="600" height="518"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="qdP-pT-O5O">
@@ -606,10 +618,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Axe-QY-lwd" firstAttribute="leading" secondItem="JUc-fw-i5Q" secondAttribute="leadingMargin" constant="-26" id="5Q1-S5-b7T"/>
-                            <constraint firstItem="8lm-P4-YHG" firstAttribute="top" secondItem="TrB-uE-uZc" secondAttribute="bottom" constant="53" id="9Xb-h8-iMW"/>
+                            <constraint firstItem="8lm-P4-YHG" firstAttribute="top" secondItem="TrB-uE-uZc" secondAttribute="bottom" constant="84" id="9Xb-h8-iMW"/>
                             <constraint firstItem="qdP-pT-O5O" firstAttribute="centerX" secondItem="JUc-fw-i5Q" secondAttribute="centerX" id="CaR-ZA-fcm"/>
                             <constraint firstItem="qdP-pT-O5O" firstAttribute="centerY" secondItem="JUc-fw-i5Q" secondAttribute="centerY" id="JFd-7e-8bg"/>
-                            <constraint firstItem="WdK-cb-pUh" firstAttribute="top" secondItem="Axe-QY-lwd" secondAttribute="bottom" constant="524" id="YzB-UD-Uv1"/>
+                            <constraint firstItem="WdK-cb-pUh" firstAttribute="top" secondItem="Axe-QY-lwd" secondAttribute="bottom" constant="518" id="YzB-UD-Uv1"/>
                             <constraint firstItem="Axe-QY-lwd" firstAttribute="top" secondItem="JUc-fw-i5Q" secondAttribute="topMargin" id="e50-R8-u2o"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Axe-QY-lwd" secondAttribute="trailing" constant="-20" id="gnV-xO-lVp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8lm-P4-YHG" secondAttribute="trailing" constant="-20" id="lcy-vm-0iU"/>

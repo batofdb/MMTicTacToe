@@ -344,6 +344,9 @@
     }
     return [array objectAtIndex: arc4random() % [array count]];
 }
+- (IBAction)onHelpButtonPressed:(UIButton *)sender {
+    [self stopTimer];
+}
 @end
 
 
