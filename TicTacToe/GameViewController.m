@@ -97,8 +97,10 @@
 
 - (void) markPlayerTap {
 
-    UIFont *fontBold = [UIFont fontWithName:@"HelveticaNeue-Bold" size:20.0f];
-    UIFont *fontLight = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
+    UIColor *color = [UIColor colorWithRed:255/255.0 green:193/255.0 blue:7/255.0 alpha:1]; // select needed color
+
+    UIFont *fontBold = [UIFont fontWithName:@"HelveticaNeue-Bold" size:40.0f];
+    UIFont *fontLight = [UIFont fontWithName:@"HelveticaNeue-Bold" size:40.0f];
 
     if (self.isPlayerOne == YES){
         self.mark = [self.mark initWithString:@"x"];
@@ -107,6 +109,8 @@
         self.mark = [self.mark initWithString:@"o"];
         [self.mark addAttribute:NSFontAttributeName value:fontLight range:NSMakeRange(0, [self.mark length])];
     }
+
+    [self.mark addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0,[self.mark length])];
 
     [self makeMagicHappen:[self.gridLayout objectAtIndex:self.currentLocation]];
 
