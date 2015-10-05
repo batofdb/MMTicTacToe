@@ -36,6 +36,8 @@
 @property BOOL isPlaying;
 @property CGPoint defaultGameIndicatorCenter;
 @property NSMutableSet *availableMoves;
+@property NSMutableArray *computerAvailableMoves;
+@property NSMutableSet *tempSet;
 
 
 @end
@@ -60,6 +62,8 @@
 
     self.playerOneMoves = [[NSMutableSet alloc] init];
     self.playerTwoMoves = [[NSMutableSet alloc] init];
+    self.computerAvailableMoves = [[NSMutableArray alloc] init];
+    self.tempSet = [[NSMutableSet alloc] init];
     self.isPlaying = NO;
     self.isWinner = NO;
     self.isPlayerOne = YES;
@@ -78,10 +82,6 @@
         else
             self.gameIndicator.text = @"O";
     }
-/*
-    if(self.isPlaying)
-        [self.quitButtonLabel setTitle:@"Quit" forState:UIControlStateNormal];
-*/
 }
 
 - (IBAction)tapHandler:(UITapGestureRecognizer *)sender {
@@ -128,7 +128,7 @@
         self.isValidMark = YES;
         [self resetTimer];
         self.isPlayerOne ^= YES;
-        //Issue with AI belowvvvvvvvvv
+
         if(self.isComputerEnabled && (self.isPlayerOne == NO))
             [self makeComputerMove];
 
@@ -159,7 +159,6 @@
 }
 
 -(void) resetAction{
-
 
     self.availableMoves = [NSMutableSet setWithObjects:@0,@1,@2,@3,@4,@5,@6,@7,@8, nil];
     //[self.quitButtonLabel setTitle:@"Start" forState:UIControlStateNormal];
@@ -337,7 +336,12 @@
 ////////////////
 
 -(void) makeComputerMove{
-    self.currentLocation = [[self randomAvailableMove:self.availableMoves] intValue];
+    [self aiCheckForAvailableMoves];
+    if ([self.computerAvailableMoves count] == 0)
+        self.currentLocation = [[self randomAvailableMove:self.availableMoves] intValue];
+    else
+        self.currentLocation = [[self.computerAvailableMoves objectAtIndex:arc4random() % [self.computerAvailableMoves count]]intValue];
+
     [self markPlayerTap];
 }
 
@@ -355,6 +359,64 @@
     [self clearBoard];
 
 }
+
+- (void) aiCheckForAvailableMoves{
+
+    int hits = 0;
+    [self.computerAvailableMoves removeAllObjects];
+
+    if([self.playerTwoMoves count]>1)
+    {
+    //Logic to win game
+    for(NSSet *move in self.answerKey){
+        int count = 0;
+       for (NSNumber *num in move)
+       {
+           if([self.playerTwoMoves member:num]!=nil){
+               hits++;
+           } else {
+               if (hits == 2 && [self.availableMoves containsObject:num]){
+                   [self.computerAvailableMoves addObject:num];
+                }
+           }
+           count++;
+           if(count==3)
+               hits = 0;
+       }
+
+    }
+    }
+
+    //Logic to block player one's move
+    if(([self.computerAvailableMoves count] == 0)&&([self.playerOneMoves count] > 1)){
+        for(NSSet *move in self.answerKey){
+            int count = 0;
+            for (NSNumber *num in move)
+            {
+                if([self.playerOneMoves member:num]!=nil){
+                    hits++;
+                } else {
+                    if (hits == 2 && [self.availableMoves containsObject:num]){
+                        [self.computerAvailableMoves addObject:num];
+                    }
+                }
+                count++;
+                if(count==3)
+                    hits = 0;
+            }
+
+        }
+    }
+
+    NSMutableSet *tempSet = [[NSMutableSet alloc] initWithArray:self.computerAvailableMoves];
+    [self.availableMoves minusSet:tempSet];
+
+}
+
+
+
+
+
 @end
 
 

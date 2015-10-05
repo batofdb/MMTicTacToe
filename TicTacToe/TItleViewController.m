@@ -51,11 +51,14 @@
 }
 
 -(void) moveObject:(UILabel *)obj{
+
     [UIView animateWithDuration: 2+arc4random_uniform(12)
                           delay: arc4random_uniform(5)
                         options: UIViewAnimationOptionRepeat
                      animations: ^{
-                         obj.frame = CGRectOffset(obj.frame, -([UIScreen mainScreen].bounds.size.width+obj.bounds.size.width), 0);
+
+                         obj.frame = CGRectOffset(obj.frame, -([UIScreen mainScreen].bounds.size.width+obj.bounds.size.width), [UIScreen mainScreen].bounds.size.height);
+
                      } completion: ^(BOOL finished){
                          if (!self.isTitleAnimationEnabled) {
                              [UIView setAnimationRepeatCount: 0];
