@@ -202,7 +202,7 @@
     if (!self.isPlayerOne)
         playerString = @"Player 2";
 
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"You're a Winner!" message:[playerString stringByAppendingString:@" won!"] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Winner!" message:[playerString stringByAppendingString:@" won!"] preferredStyle:UIAlertControllerStyleAlert];
 
     UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"YESSS!" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             [self resetAction];
@@ -217,7 +217,7 @@
 
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cat's Game" message:[NSString stringWithFormat:@"It's a tie..=("] preferredStyle:UIAlertControllerStyleAlert];
 
-    UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"Aw man!" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self stopTimer];
         [self resetAction];
     }];
@@ -365,58 +365,51 @@
     int hits = 0;
     [self.computerAvailableMoves removeAllObjects];
 
-    if([self.playerTwoMoves count]>1)
-    {
-    //Logic to win game
-    for(NSSet *move in self.answerKey){
-        int count = 0;
-       for (NSNumber *num in move)
-       {
-           if([self.playerTwoMoves member:num]!=nil){
-               hits++;
-           } else {
-               if (hits == 2 && [self.availableMoves containsObject:num]){
-                   [self.computerAvailableMoves addObject:num];
+    if([self.playerTwoMoves count]>1){
+        //Logic to win game
+        for(NSSet *moveWin in self.answerKey){
+            int count = 0;
+            for (NSNumber *numOne in moveWin)
+            {
+                if([self.playerTwoMoves member:numOne]!=nil){
+                    hits++;
+                } else {
+                    if (hits == 2 && [self.availableMoves containsObject:numOne]){
+                        [self.computerAvailableMoves addObject:numOne];
+                    }
                 }
-           }
-           count++;
-           if(count==3)
-               hits = 0;
-       }
-
-    }
+                count++;
+                if(count==4)
+                    hits = 0;
+            }
+        }
     }
 
     //Logic to block player one's move
     if(([self.computerAvailableMoves count] == 0)&&([self.playerOneMoves count] > 1)){
-        for(NSSet *move in self.answerKey){
+        for(NSSet *moveBlock in self.answerKey){
             int count = 0;
-            for (NSNumber *num in move)
+            for (NSNumber *numTwo in moveBlock)
             {
-                if([self.playerOneMoves member:num]!=nil){
+                if([self.playerOneMoves member:numTwo]!=nil){
                     hits++;
                 } else {
-                    if (hits == 2 && [self.availableMoves containsObject:num]){
-                        [self.computerAvailableMoves addObject:num];
+                    if (hits == 2 && [self.availableMoves containsObject:numTwo]){
+                        [self.computerAvailableMoves addObject:numTwo];
                     }
                 }
                 count++;
-                if(count==3)
+                if(count==4)
                     hits = 0;
             }
-
         }
     }
 
     NSMutableSet *tempSet = [[NSMutableSet alloc] initWithArray:self.computerAvailableMoves];
-    [self.availableMoves minusSet:tempSet];
+    [tempSet intersectSet:self.availableMoves];
+    self.computerAvailableMoves = [NSMutableArray arrayWithArray:[tempSet allObjects]];
 
 }
-
-
-
-
-
 @end
 
 
