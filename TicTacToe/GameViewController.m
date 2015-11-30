@@ -49,7 +49,7 @@
 - (void)viewDidLoad {
 
     //Adding background gradient to gameboard background view
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.gameBoardBackgroundView.frame.size.height, self.gameBoardBackgroundView.frame.size.width)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.gameBoardBackgroundView.frame.size.width, self.gameBoardBackgroundView.frame.size.height)];
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = view.bounds;
     gradient.colors = [NSArray arrayWithObjects:(id)[self.gameBoardBackgroundView.backgroundColor CGColor], (id)[[UIColor whiteColor] CGColor], nil];
@@ -91,12 +91,29 @@
 
 
 - (void) updateGameBoard {
+    UIColor *color;
+
+    UIFont *fontBold = [UIFont fontWithName:@"AvenirNext-UltraLight" size:50.0f];
+    UIFont *fontLight = [UIFont fontWithName:@"AvenirNext-UltraLight" size:50.0f];
+
+    NSMutableAttributedString *mark = [[NSMutableAttributedString alloc]init];
+
     if (self.isPlaying){
-        if (self.isPlayerOne)
-            self.gameIndicator.text = @"X";
-        else
-            self.gameIndicator.text = @"O";
+        if (self.isPlayerOne) {
+            mark = [mark initWithString:@"X"];
+        [mark addAttribute:NSFontAttributeName value:fontBold range:NSMakeRange(0, [mark length])];
+        color = UIColorFromRGB(0x00BCD4); // select needed color
+        } else {
+            mark = [mark initWithString:@"O"];
+            [mark addAttribute:NSFontAttributeName value:fontLight range:NSMakeRange(0, [mark length])];
+            color = UIColorFromRGB(0xFF5722); // select needed color
+        }
+
+        [mark addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0,[mark length])];
+        self.gameIndicator.attributedText = mark;
     }
+
+
 }
 
 - (IBAction)tapHandler:(UITapGestureRecognizer *)sender {
@@ -112,17 +129,23 @@
 
 - (void) markPlayerTap {
 
-    UIColor *color = [UIColor colorWithRed:255/255.0 green:193/255.0 blue:7/255.0 alpha:1]; // select needed color
+    UIColor *color;
 
-    UIFont *fontBold = [UIFont fontWithName:@"HelveticaNeue-Bold" size:40.0f];
-    UIFont *fontLight = [UIFont fontWithName:@"HelveticaNeue-Bold" size:40.0f];
+    UIFont *fontBold = [UIFont fontWithName:@"AvenirNext-UltraLight" size:75.0f];
+    UIFont *fontLight = [UIFont fontWithName:@"AvenirNext-UltraLight" size:75.0f];
+
+    self.mark = [self.mark initWithString:@"x"];
+    [self.mark addAttribute:NSFontAttributeName value:fontBold range:NSMakeRange(0, [self.mark length])];
+    color = UIColorFromRGB(0x00BCD4); // select needed color
 
     if (self.isPlayerOne == YES){
         self.mark = [self.mark initWithString:@"x"];
         [self.mark addAttribute:NSFontAttributeName value:fontBold range:NSMakeRange(0, [self.mark length])];
+        color = UIColorFromRGB(0x00BCD4); // select needed color
     } else {
         self.mark = [self.mark initWithString:@"o"];
         [self.mark addAttribute:NSFontAttributeName value:fontLight range:NSMakeRange(0, [self.mark length])];
+        color = UIColorFromRGB(0xFF5722); // select needed color
     }
 
     [self.mark addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0,[self.mark length])];

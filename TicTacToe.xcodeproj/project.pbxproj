@@ -14,9 +14,9 @@
 		471363F11BBDCBB500BC61C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 471363EF1BBDCBB500BC61C4 /* LaunchScreen.storyboard */; };
 		471363FC1BBDCBB500BC61C4 /* TicTacToeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 471363FB1BBDCBB500BC61C4 /* TicTacToeTests.m */; };
 		471364071BBDCBB500BC61C4 /* TicTacToeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 471364061BBDCBB500BC61C4 /* TicTacToeUITests.m */; };
-		471364161BBDCC4100BC61C4 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471364151BBDCC4100BC61C4 /* GameViewController.m */; settings = {ASSET_TAGS = (); }; };
-		4713645E1BBF282200BC61C4 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4713645D1BBF282200BC61C4 /* WebViewController.m */; settings = {ASSET_TAGS = (); }; };
-		471364671BC03D5700BC61C4 /* TItleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471364661BC03D5700BC61C4 /* TItleViewController.m */; settings = {ASSET_TAGS = (); }; };
+		471364161BBDCC4100BC61C4 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471364151BBDCC4100BC61C4 /* GameViewController.m */; };
+		4713645E1BBF282200BC61C4 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4713645D1BBF282200BC61C4 /* WebViewController.m */; };
+		471364671BC03D5700BC61C4 /* TItleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471364661BC03D5700BC61C4 /* TItleViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -508,6 +508,7 @@
 				4713640D1BBDCBB500BC61C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4713640E1BBDCBB500BC61C4 /* Build configuration list for PBXNativeTarget "TicTacToeTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +517,7 @@
 				471364101BBDCBB500BC61C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		471364111BBDCBB500BC61C4 /* Build configuration list for PBXNativeTarget "TicTacToeUITests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +526,7 @@
 				471364131BBDCBB500BC61C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

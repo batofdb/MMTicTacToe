@@ -33,6 +33,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    //Add gradient to background view
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.titleBackgroundVIew.frame.size.width, self.titleBackgroundVIew.frame.size.height)];
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = view.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor] CGColor],(id)[self.titleBackgroundVIew.backgroundColor CGColor], nil];
+    [self.titleBackgroundVIew.layer insertSublayer:gradient atIndex:0];
+
+
     //Add diagonal shape
     self.titleBackgroundVIew.transform = CGAffineTransformConcat(CGAffineTransformMakeRotation(45), CGAffineTransformMakeTranslation(-220, -200));
 
