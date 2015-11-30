@@ -8,6 +8,7 @@
 
 #import "GameViewController.h"
 
+
 @interface GameViewController () <UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *topLeft;
 @property (weak, nonatomic) IBOutlet UILabel *topMiddle;
@@ -40,7 +41,7 @@
 @property NSMutableSet *tempSet;
 @property (weak, nonatomic) IBOutlet UIView *gameBoardView;
 @property (weak, nonatomic) IBOutlet UIView *gameBoardBackgroundView;
-
+@property CALayer *backgroundLayer;
 
 @end
 
@@ -52,8 +53,9 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.gameBoardBackgroundView.frame.size.width, self.gameBoardBackgroundView.frame.size.height)];
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = view.bounds;
-    gradient.colors = [NSArray arrayWithObjects:(id)[self.gameBoardBackgroundView.backgroundColor CGColor], (id)[[UIColor whiteColor] CGColor], nil];
-    [self.gameBoardBackgroundView.layer insertSublayer:gradient atIndex:0];
+    gradient.colors = [NSArray arrayWithObjects:(id)[UIColorFromRGB(0x00BCD4) CGColor], (id)[[UIColor whiteColor] CGColor], nil];
+    self.backgroundLayer = gradient;
+    [self.gameBoardBackgroundView.layer insertSublayer:self.backgroundLayer atIndex:0];
 
 
     //Adding drop shadow to gameboard
@@ -63,6 +65,8 @@
     self.gameBoardView.layer.shadowRadius = 12.0;
     [super viewDidLoad];
 }
+
+
 
 - (void)viewDidAppear:(BOOL)animated{
 
@@ -165,7 +169,11 @@
 
         self.isValidMark = YES;
         [self resetTimer];
+
+        [self updateGameboardBackgroundColor];
         self.isPlayerOne ^= YES;
+
+
 
         if(self.isComputerEnabled && (self.isPlayerOne == NO))
             [self makeComputerMove];
@@ -173,6 +181,33 @@
 
 
     }
+}
+
+- (void) updateGameboardBackgroundColor {
+    CATransition* transition = [CATransition animation];
+    transition.delegate = nil;
+    transition.duration = 0.3;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut];
+    transition.type = kCATransitionFade;
+    [self.gameBoardBackgroundView.layer addAnimation: transition forKey: nil];
+
+    [[self.gameBoardBackgroundView.layer.sublayers objectAtIndex:0] removeFromSuperlayer];
+    UIColor *color;
+
+    if (self.isPlayerOne)
+        color = UIColorFromRGB(0xFF5722); // select needed color
+    else
+        color = UIColorFromRGB(0x00BCD4);
+
+    //Adding background gradient to gameboard background view
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.gameBoardBackgroundView.frame.size.width, self.gameBoardBackgroundView.frame.size.height)];
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = view.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[color CGColor], (id)[[UIColor whiteColor] CGColor], nil];
+    self.backgroundLayer = gradient;
+    [self.gameBoardBackgroundView.layer insertSublayer:self.backgroundLayer atIndex:0];
+
+
 }
 
 
