@@ -214,11 +214,15 @@
 - (void) checkForWinner{
     for (NSSet *set in self.answerKey){
         if(self.isPlayerOne == YES) {
-        if([set isSubsetOfSet:self.playerOneMoves])
+            if([set isSubsetOfSet:self.playerOneMoves]) {
             self.isWinner = YES;
+            break;
+            }
         } else {
-        if([set isSubsetOfSet:self.playerTwoMoves])
+            if([set isSubsetOfSet:self.playerTwoMoves]) {
             self.isWinner = YES;
+            break;
+            }
         }
     }
     if((self.isWinner == NO) &&([self.availableMoves count]==0)){
