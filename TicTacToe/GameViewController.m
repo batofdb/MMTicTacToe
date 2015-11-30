@@ -38,6 +38,8 @@
 @property NSMutableSet *availableMoves;
 @property NSMutableArray *computerAvailableMoves;
 @property NSMutableSet *tempSet;
+@property (weak, nonatomic) IBOutlet UIView *gameBoardView;
+@property (weak, nonatomic) IBOutlet UIView *gameBoardBackgroundView;
 
 
 @end
@@ -46,6 +48,19 @@
 
 - (void)viewDidLoad {
 
+    //Adding background gradient to gameboard background view
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.gameBoardBackgroundView.frame.size.height, self.gameBoardBackgroundView.frame.size.width)];
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = view.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[self.gameBoardBackgroundView.backgroundColor CGColor], (id)[[UIColor whiteColor] CGColor], nil];
+    [self.gameBoardBackgroundView.layer insertSublayer:gradient atIndex:0];
+
+
+    //Adding drop shadow to gameboard
+    self.gameBoardView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.gameBoardView.layer.shadowOffset = CGSizeMake(0, 0);
+    self.gameBoardView.layer.shadowOpacity = 0.5;
+    self.gameBoardView.layer.shadowRadius = 12.0;
     [super viewDidLoad];
 }
 
