@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toe Tac Tic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzD-7k-dnl">
-                                <rect key="frame" x="64" y="265" width="473" height="69"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toe Tac Tic" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzD-7k-dnl">
+                                <rect key="frame" x="64" y="167" width="473" height="69"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="50"/>
                                 <color key="textColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -30,7 +30,7 @@
                             <constraint firstAttribute="width" constant="600" id="7ov-VR-War"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jzD-7k-dnl" secondAttribute="trailing" constant="43" id="MlD-Uu-Gjf"/>
                             <constraint firstItem="jzD-7k-dnl" firstAttribute="centerX" secondItem="53A-Xw-Lfg" secondAttribute="centerX" id="Q8M-8H-qFX"/>
-                            <constraint firstItem="jzD-7k-dnl" firstAttribute="centerY" secondItem="53A-Xw-Lfg" secondAttribute="centerY" id="bpE-gb-xSI"/>
+                            <constraint firstItem="jzD-7k-dnl" firstAttribute="centerY" secondItem="53A-Xw-Lfg" secondAttribute="centerY" constant="-98.5" id="bpE-gb-xSI"/>
                         </constraints>
                     </view>
                 </viewController>
