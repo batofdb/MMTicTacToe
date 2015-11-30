@@ -21,12 +21,28 @@
 @property (weak, nonatomic) IBOutlet UILabel *movingO4;
 @property (weak, nonatomic) IBOutlet UILabel *movingX5;
 @property (weak, nonatomic) IBOutlet UILabel *movingO5;
+@property (weak, nonatomic) IBOutlet UIView *titleBackgroundVIew;
 @property BOOL isTitleAnimationEnabled;
+@property (weak, nonatomic) IBOutlet UIView *startGameView;
 @property BOOL onFirstLoad;
 @end
 
 @implementation TItleViewController
 
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    //Add diagonal shape
+    self.titleBackgroundVIew.transform = CGAffineTransformConcat(CGAffineTransformMakeRotation(45), CGAffineTransformMakeTranslation(-220, -200));
+
+    //Add dropshadow to game start dialog box
+    self.startGameView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.startGameView.layer.shadowOffset = CGSizeMake(0, 0);
+    self.startGameView.layer.shadowOpacity = 0.5;
+    self.startGameView.layer.shadowRadius = 12.0;
+
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
